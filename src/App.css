@@ -88,11 +88,11 @@
   max-width: 85%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 30% 70%;
 }
 
 .main-item__name {
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
 .main-item__name p {
