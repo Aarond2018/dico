@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 export default function Main(props) {
+  const [playing, setPlaying] = useState(false)
+
   const playAudio = (url) => {
     const audio = new Audio(url)
     audio.play()
+    setPlaying(true)
+    audio.addEventListener('ended', () => setPlaying(false));
     console.log("yeaa")
   }
   
@@ -15,7 +19,8 @@ export default function Main(props) {
         <div className="main-overview">
           <h1>{props.data?.word}</h1>
           <div className="main-voice" onClick={() => playAudio(props.data?.phonetics[0].audio)}>
-            <i className="far fa-play-circle"></i>
+            {playing ? <i className="far fa-pause-circle"></i> :
+            <i className="far fa-play-circle"></i>}
             <p>{props.data?.phonetics[0].text}</p>
           </div>
         </div>

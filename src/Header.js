@@ -15,7 +15,7 @@ export default function Header(props) {
       <header className="main-header">
         <h2>dICo</h2>
         <form className="main-header__search" onSubmit={handleSubmit}>
-          <input type="text" name="name" placeholder="Search a word..."></input>
+          <input type="text" name="name" placeholder="Search a word..." autoComplete="off"></input>
           <button type="submit"><i className="fas fa-search"></i></button>
         </form>
       </header>
