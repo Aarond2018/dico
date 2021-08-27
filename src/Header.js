@@ -6,6 +6,7 @@ export default function Header(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(e.target)
     props.fetchData(e.target.elements.name.value)
   }
 
