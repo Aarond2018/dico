@@ -14,7 +14,7 @@ export default function Main(props) {
   
   return (
     <React.Fragment>
-      {!props.data?.word ? <p>loading...</p> : 
+      {!props.data?.word ? <div className="loader"></div> : 
         <main className="main">
         <div className="main-overview">
           <h1>{props.data?.word}</h1>
