@@ -1,5 +1,5 @@
 .App {
-
+  
 }
 
 .main-header {
@@ -152,14 +152,15 @@
   cursor: pointer;
 }
 
+.loader-wrapper {
+
+}
+
 .loader {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
   border-top: 2px solid #C7C7C7;
-  /* border-bottom: none;
-  border-left: none;
-  border-right: none; */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -170,16 +171,16 @@
 
 @keyframes spin {
   0% {
-    transform: rotate(90deg);
+    transform: translate(-50%, -50%) rotate(90deg);
   }
   25% {
-    transform: rotate(180deg);
+    transform: translate(-50%, -50%) rotate(180deg);
   }
   50% {
-    transform: rotate(270deg);
+    transform: translate(-50%, -50%) rotate(270deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 

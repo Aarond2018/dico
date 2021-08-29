@@ -14,8 +14,8 @@ export default function Main(props) {
   
   return (
     <React.Fragment>
-      {!props.data?.word ? <div className="loader"></div> : 
-        <main className="main">
+      {!props.loading ? <div className="loader"></div> : 
+        (<main className="main">
         <div className="main-overview">
           <h1>{props.data?.word}</h1>
           <div className="main-voice" onClick={() => playAudio(props.data?.phonetics[0].audio)}>
@@ -49,7 +49,7 @@ export default function Main(props) {
           </div>
           ))}
         </div>
-      </main>
+      </main>)
     }
     </React.Fragment>
   )
