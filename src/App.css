@@ -122,6 +122,10 @@
 
 }
 
+.main-item__definition i {
+  margin-right: 0.5rem;
+}
+
 .main-item__definition h3 {
   font-size: 1.2rem;
   font-weight: 400;

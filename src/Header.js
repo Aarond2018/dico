@@ -8,6 +8,7 @@ export default function Header(props) {
     e.preventDefault();
     console.log(e.target)
     props.fetchData(e.target.elements.name.value)
+    e.target.elements.name.value = ""
   }
 
   return (

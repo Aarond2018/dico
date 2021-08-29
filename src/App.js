@@ -12,7 +12,7 @@ function App() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    fetchData("classification")
+    fetchData("a")
   }, [])
 
   const fetchData =(word) => {
@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <Header fetchData={fetchData}/>
-      <Main data={state} loading={loading}/>
+      <Main data={state} loading={loading} fetchData={fetchData}/>
     </div>
   );
 }

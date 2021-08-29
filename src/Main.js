@@ -3,13 +3,15 @@ import React, { useState } from 'react';
 
 export default function Main(props) {
   const [playing, setPlaying] = useState(false)
+  const [syn, setSyn] = useState()
 
   const playAudio = (url) => {
     const audio = new Audio(url)
     audio.play()
     setPlaying(true)
     audio.addEventListener('ended', () => setPlaying(false));
-    console.log("yeaa")
+    /* console.log("yeaa")
+    console.log(props.data?.meanings[0].definitions[0].synonyms) */
   }
   
   return (
@@ -33,16 +35,14 @@ export default function Main(props) {
             <div className="main-item__definitions">
               {word.definitions.map(def => (
                 <div className="main-item__definition">
-                <h3>{def.definition}</h3>
-                <p>"{def.example}"</p>
-                <div className="synonyms-wrap">
-                  <p>{def.synonyms ? "synonyms:" : ""}</p>
+                <h3><i className="fas fa-angle-right"></i> {def.definition}</h3>
+                {!def.example? <div></div> : <p>"{def.example}"</p>}
+                {def.synonyms.length === 0 ? <div></div> : (<div className="synonyms-wrap">
+                  <p> synonyms:</p>
                   <div className="synonyms">
-                    {def.synonyms? def.synonyms.map(syn => (
-                      <p>{syn}, </p>
-                    )): ""}
+                    {def.synonyms.map(syn => <p onClick={()=>props.fetchData(syn)}>{syn}, </p>)}
                   </div>
-                </div>
+                </div>)}
               </div>
               ))}
             </div>
