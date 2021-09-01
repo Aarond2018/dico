@@ -21,7 +21,7 @@ export default function Main(props) {
           <div className="main-voice" onClick={() => playAudio(props.data?.phonetics[0].audio)}>
             {playing ? <i className="far fa-pause-circle"></i> :
             <i className="far fa-play-circle"></i>}
-            <p>{props.data?.phonetics[0].text}</p>
+            <p>{props.data?.phonetics[0]?.text}</p>
           </div>
         </div>
         <div className="main-body">
