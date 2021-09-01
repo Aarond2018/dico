@@ -10,8 +10,6 @@ export default function Main(props) {
     audio.play()
     setPlaying(true)
     audio.addEventListener('ended', () => setPlaying(false));
-    /* console.log("yeaa")
-    console.log(props.data?.meanings[0].definitions[0].synonyms) */
   }
   
   return (
@@ -54,39 +52,3 @@ export default function Main(props) {
     </React.Fragment>
   )
 }
-
-
-{/* <main className="main">
-      <div className="main-overview">
-        <h1>{props.data.word}</h1>
-        <div className="main-voice">
-          <i className="far fa-play-circle"></i>
-          <p>{props.data.phonetics[0].text}</p>
-        </div>
-      </div>
-      <div className="main-body">
-        {props.data[0].meanings.map(word => (
-          <div className="main-body__item">
-          <div className="main-item__name">
-            <p>{word.partOfSpeech}</p>
-          </div>
-          <div className="main-item__definitions">
-            {word.definitions.map(def => (
-              <div className="main-item__definition">
-              <h3>{def.definition}</h3>
-              <p>"{def.example}"</p>
-              <div className="synonyms-wrap">
-                <p>{def.synonyms ? "synonyms:" : ""}</p>
-                <div className="synonyms">
-                  {def.synonyms? def.synonyms.map(syn => (
-                    <p>{syn}, </p>
-                  )):""}
-                </div>
-              </div>
-            </div>
-            ))}
-          </div>
-        </div>
-        ))}
-      </div>
-    </main> */}

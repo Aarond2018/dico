@@ -9,28 +9,43 @@ import './App.css';
 
 function App() {
   const [state, setState] = useState();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     fetchData("a")
   }, [])
 
-  const fetchData =(word) => {
-    setLoading(true)
-    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
-    .then(res => res.json())
-    .then(data => {
-      setState(...data);
-      setLoading(false);
-    })
-  }
+  const fetchData = async (word) => {
+    setLoading(true);
+    setError(null)
+    try {
+      const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+      
+      const data = await response.json();
 
-  console.log(state)
+      if(response.status === 404) {
+        throw new Error(data.title);
+      }
+
+      if (!response.ok) {
+        throw new Error("An error occurred..")
+      }
+
+      setState(...data)
+    } catch (error) {
+      setError(error.message)
+    }
+
+    
+    setLoading(false);
+  }
 
   return (
     <div className="App">
       <Header fetchData={fetchData}/>
-      <Main data={state} loading={loading} fetchData={fetchData}/>
+      {!error && <Main data={state} loading={loading} fetchData={fetchData} />}
+      {error && <p className="error">{error}</p>}
     </div>
   );
 }
