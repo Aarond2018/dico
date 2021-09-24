@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 export default function Main(props) {
   const [playing, setPlaying] = useState(false)
   const [syn, setSyn] = useState()
